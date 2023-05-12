@@ -4,3 +4,12 @@ export type Post = {
     title: string;
     body: string;
 };
+
+export type UserProps = {
+    name: string;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    id: any;
+    email: string;
+    gender: "male" | "female";
+    active: "active" | "inactive";
+};

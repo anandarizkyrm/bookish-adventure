@@ -2,6 +2,8 @@ import "./globals.css";
 import { Inter } from "next/font/google";
 import RQProviders from "@/utils/RQsetup/RQprovider";
 import Navbar from "@/components/organisms/Navbar";
+import { Toaster } from "react-hot-toast";
+
 const inter = Inter({ subsets: ["latin"] });
 export const metadata = {
     title: "Create Next App",
@@ -17,6 +19,7 @@ export default function RootLayout({
         <html lang="en">
             <body className={inter.className}>
                 <RQProviders>
+                    <Toaster position="top-right" reverseOrder={false} />
                     <Navbar />
                     {children}
                 </RQProviders>
