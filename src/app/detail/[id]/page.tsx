@@ -9,8 +9,6 @@ const Detail = async ({ params }: { params: { id: string } }) => {
     const data = await apiServices.getDetailPost(id);
     const comments = await apiServices.getComment(id);
 
-    console.log(comments);
-
     return (
         <Container>
             <div className="container mx-auto max-w-screen-lg px-8  py-5 !pt-0 lg:py-8 xl:px-5">
