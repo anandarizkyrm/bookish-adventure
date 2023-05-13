@@ -69,7 +69,7 @@ export default function Navbar() {
                                         href="/"
                                         className="w-28 dark:text-white"
                                     >
-                                        <span className="block text-center text-2xl font-bold">
+                                        <span className="block text-center text-2xl font-normal">
                                             Go - Blog
                                         </span>
                                     </Link>

@@ -1,3 +1,4 @@
+import Avatar from "@/components/atoms/Avatar";
 import { UserProps } from "@/types";
 import { PencilSquareIcon, TrashIcon } from "@heroicons/react/24/solid";
 import React from "react";
@@ -25,7 +26,7 @@ const CardUser = ({
 }: Props) => {
     return (
         <div>
-            <div className="flex justify-between gap-3">
+            <div className="flex justify-between gap-4">
                 <a>
                     <span className="mt-5 inline-block text-xs font-medium uppercase   tracking-wider text-blue-600">
                         {gender}
@@ -51,9 +52,15 @@ const CardUser = ({
                 </div>
             </div>
 
-            <div className="mt-3 flex items-center space-x-3 text-gray-500 dark:text-gray-400">
+            <div className="mt-3 flex items-center space-x-3 p-2 text-gray-500 shadow-md dark:text-gray-400">
+                <Avatar />
                 <div className="flex items-center gap-3">
                     <span className="truncate text-sm">{name}</span>
+                    <span
+                        className={`${
+                            status == "active" ? "bg-green-700" : "bg-red-500"
+                        } h-2 w-2 rounded-full`}
+                    ></span>
                 </div>
                 <span className="text-xs text-gray-300 dark:text-gray-600">
                     •
