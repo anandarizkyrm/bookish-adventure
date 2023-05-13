@@ -25,34 +25,26 @@ const apiServices = {
         return response.data;
     },
 
-    createPost: async (post: UserProps) => {
+    createUser: async (post: UserProps) => {
         const url = ApiRoutes.create.user;
         const response = await api.post(url, post);
 
         return response.data;
     },
 
-    // updatePost: async (post: any, postId: number) => {
-    //     try {
-    //         const url = ApiRoutes.posts.update(postId);
-    //         const response = await api.put(url, post);
+    updateUser: async (post: UserProps) => {
+        const url = ApiRoutes.update.user(post.id);
+        const response = await api.put(url, post);
 
-    //         return response.data;
-    //     } catch (err) {
-    //         throw err;
-    //     }
-    // },
+        return response.data;
+    },
 
-    // deletePost: async (postId: number) => {
-    //     try {
-    //         const url = ApiRoutes.posts.destroy(postId);
-    //         const response = await api.delete(url);
+    deletePost: async (id: string) => {
+        const url = ApiRoutes.delete.user(id);
+        const response = await api.delete(url);
 
-    //         return response.data;
-    //     } catch (err) {
-    //         throw err;
-    //     }
-    // },
+        return response.data;
+    },
 };
 
 export default apiServices;

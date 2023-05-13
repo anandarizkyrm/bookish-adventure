@@ -5,13 +5,13 @@ import { Dialog } from "@headlessui/react";
 import { FormProvider, useForm } from "react-hook-form";
 import Input from "@/components/atoms/Input";
 import SelectInput from "@/components/atoms/SelectInput";
-import UsePost from "@/hooks/usePost";
 import {
     QueryObserverResult,
     RefetchOptions,
     RefetchQueryFilters,
 } from "@tanstack/react-query";
 import { UserProps } from "@/types";
+import { UsePost, useUpdateUser } from "@/hooks/usePost";
 
 type Props = {
     isOpen: boolean;
@@ -52,9 +52,8 @@ const ModalFormCreateUser = ({
         reset(defaultEditValues);
     }, [defaultEditValues, reset]);
 
-    const { onSubmit: editSubmit } = UsePost(setIsOpen, refetch);
+    const { onSubmit: editSubmit } = useUpdateUser(setIsOpen, refetch);
 
-    console.log(defaultEditValues);
     return (
         <Dialog
             className="relative z-50"

@@ -80,9 +80,9 @@ export default function Input({
                     className={clsx(
                         "flex w-full rounded-lg border p-2 shadow-sm focus:outline-none",
                         "min-h-[2.25rem] py-0 md:min-h-[2.5rem]",
-                        "focus:border-primary-500 focus:ring-primary-500 border-gray-300 dark:bg-transparent",
+                        "focus:border-primary-500  focus:ring-primary-500 border-gray-600 dark:bg-black",
                         (readOnly || disabled) &&
-                            "cursor-not-allowed border-gray-300 bg-gray-100 focus:border-gray-300 focus:ring-0",
+                            "cursor-not-allowed border-gray-300 bg-gray-100 focus:border-gray-300 focus:ring-0 dark:bg-black",
                         error &&
                             "  border-red-500 focus:border focus:border-red-500 focus:ring-red-500",
                         LeftIcon && "pl-9",

@@ -7,10 +7,11 @@ type Props = {
     gender: "male" | "female";
     email: string;
     id: string;
-    active: "active" | "inactive";
+    status: "active" | "inactive";
     setDefaultEditValue: React.Dispatch<
         React.SetStateAction<UserProps | undefined>
     >;
+    handleDelete: (id: string) => void;
 };
 
 const CardUser = ({
@@ -19,7 +20,8 @@ const CardUser = ({
     email,
     setDefaultEditValue,
     id,
-    active,
+    status,
+    handleDelete,
 }: Props) => {
     return (
         <div>
@@ -30,7 +32,10 @@ const CardUser = ({
                     </span>
                 </a>
                 <div className="flex gap-4 self-end pb-1 pr-4">
-                    <TrashIcon className="h-4 w-4 cursor-pointer text-gray-500" />
+                    <TrashIcon
+                        onClick={() => handleDelete(id)}
+                        className="h-4 w-4 cursor-pointer text-gray-500"
+                    />
                     <PencilSquareIcon
                         onClick={() => {
                             setDefaultEditValue({
@@ -38,7 +43,7 @@ const CardUser = ({
                                 id: id,
                                 email: email,
                                 gender: gender,
-                                active: active,
+                                status: status,
                             });
                         }}
                         className="h-4 w-4 cursor-pointer text-gray-500"

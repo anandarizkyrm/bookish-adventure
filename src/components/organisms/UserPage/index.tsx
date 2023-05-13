@@ -1,5 +1,6 @@
 "use client";
 import Loading from "@/components/atoms/Loading";
+import { useDeleteUser } from "@/hooks/usePost";
 import apiServices from "@/services/post.service";
 import { UserProps } from "@/types";
 import { useQuery } from "@tanstack/react-query";
@@ -8,14 +9,16 @@ import CardUser from "../Card/User";
 import ModalFormCreateUser from "../Modal/FormCreateUser";
 
 const UserPage = ({ page }: { page: string }) => {
-    const { data, isLoading, refetch } = useQuery({
-        queryKey: ["users"],
-        queryFn: () => apiServices.getUsers(page),
-    });
     const [isOpen, setIsOpen] = useState(false);
     const [search, setSearch] = useState("");
     const [defaultEditValue, setDefaultEditValue] = useState<UserProps>();
     const [modalType, setModalType] = useState<"create" | "edit">("create");
+
+    const { data, isLoading, refetch } = useQuery({
+        queryKey: ["users"],
+        queryFn: () => apiServices.getUsers(page),
+    });
+    const { onSubmit: handleDelete } = useDeleteUser(refetch);
 
     const handleFilter = (data: UserProps[]) => {
         if (search.length > 0) {
@@ -68,11 +71,12 @@ const UserPage = ({ page }: { page: string }) => {
                         <CardUser
                             key={item.id}
                             gender={item.gender}
-                            active={item.active}
+                            status={item.status}
                             id={item.id}
                             name={item.name}
                             email={item.email}
                             setDefaultEditValue={setDefaultEditValue}
+                            handleDelete={handleDelete}
                         />
                     ))}
                 </div>

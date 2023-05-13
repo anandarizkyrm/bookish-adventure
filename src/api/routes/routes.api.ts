@@ -19,12 +19,18 @@ const ApiRoutes = {
     },
     update: {
         post(id: string) {
-            return `"/public/v2/posts/${id}"`;
+            return `/public/v2/posts/${id}`;
+        },
+        user(id: string) {
+            return `/public/v2/users/${id}`;
         },
     },
     delete: {
         post(id: string) {
-            return `"/public/v2/posts/${id}"`;
+            return `/public/v2/posts/${id}`;
+        },
+        user(id: string) {
+            return `/public/v2/users/${id}`;
         },
     },
 };

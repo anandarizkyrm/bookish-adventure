@@ -11,5 +11,5 @@ export type UserProps = {
     id: any;
     email: string;
     gender: "male" | "female";
-    active: "active" | "inactive";
+    status: "active" | "inactive";
 };
