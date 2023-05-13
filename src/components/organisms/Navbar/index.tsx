@@ -6,28 +6,26 @@ import cx from "clsx";
 import { ChevronDownIcon } from "@heroicons/react/24/solid";
 import Container from "../Container";
 
-export default function Navbar(props: any) {
+export default function Navbar() {
     const leftmenu = [
         {
             label: "Home",
             href: "/",
         },
-
         {
-            label: "Contact",
-            href: "/contact",
+            label: "User",
+            href: "/user",
         },
     ];
 
     const rightmenu = [
         {
-            label: "Archive",
-            href: "/archive",
+            label: "Home",
+            href: "/",
         },
         {
-            label: "Create",
-            href: "/create",
-            external: true,
+            label: "User",
+            href: "/user",
         },
     ];
 
@@ -58,16 +56,6 @@ export default function Navbar(props: any) {
                                                         href={item.href}
                                                         key={`${item.label}${index}`}
                                                         className="px-5 py-2 text-sm font-medium text-gray-600 hover:text-blue-500 dark:text-gray-400"
-                                                        target={
-                                                            item.external
-                                                                ? "_blank"
-                                                                : ""
-                                                        }
-                                                        rel={
-                                                            item.external
-                                                                ? "noopener"
-                                                                : ""
-                                                        }
                                                     >
                                                         {item.label}
                                                     </Link>
@@ -81,41 +69,11 @@ export default function Navbar(props: any) {
                                         href="/"
                                         className="w-28 dark:text-white"
                                     >
-                                        <span className="block text-center font-extralight text-2xl">
+                                        <span className="block text-center text-2xl font-bold">
                                             Go - Blog
                                         </span>
                                     </Link>
-                                    {/* <Link href="/" className="w-28 dark:hidden">
-                                        {props.logo ? (
-                                            <Image
-                                                {...urlForImage(props.logo)}
-                                                alt="Logo"
-                                                priority={true}
-                                                sizes="(max-width: 640px) 100vw, 200px"
-                                            />
-                                        ) : (
-                                            <span className="block text-center">
-                                                Stablo
-                                            </span>
-                                        )}
-                                    </Link>
-                                    <Link
-                                        href="/"
-                                        className="hidden w-28 dark:block"
-                                    >
-                                        {props.logoalt ? (
-                                            <Image
-                                                {...urlForImage(props.logoalt)}
-                                                alt="Logo"
-                                                priority={true}
-                                                sizes="(max-width: 640px) 100vw, 200px"
-                                            />
-                                        ) : (
-                                            <span className="block text-center">
-                                                Stablo
-                                            </span>
-                                        )}
-                                    </Link> */}
+
                                     <Disclosure.Button
                                         aria-label="Toggle Menu"
                                         className="ml-auto rounded-md px-2 py-1 text-gray-500 focus:text-blue-500 focus:outline-none dark:text-gray-300 md:hidden "
@@ -160,16 +118,6 @@ export default function Navbar(props: any) {
                                                         href={item.href}
                                                         key={`${item.label}${index}`}
                                                         className="px-5 py-2 text-sm font-medium text-gray-600 hover:text-blue-500 dark:text-gray-400"
-                                                        target={
-                                                            item.external
-                                                                ? "_blank"
-                                                                : ""
-                                                        }
-                                                        rel={
-                                                            item.external
-                                                                ? "noopener"
-                                                                : ""
-                                                        }
                                                     >
                                                         <span>
                                                             {" "}
@@ -204,16 +152,6 @@ export default function Navbar(props: any) {
                                                     href={item.href}
                                                     key={`${item.label}${index}`}
                                                     className="w-full px-5 py-2 text-sm font-medium text-gray-600 hover:text-blue-500 dark:text-gray-400"
-                                                    target={
-                                                        item.external
-                                                            ? "_blank"
-                                                            : ""
-                                                    }
-                                                    rel={
-                                                        item.external
-                                                            ? "noopener"
-                                                            : ""
-                                                    }
                                                 >
                                                     {item.label}
                                                 </Link>

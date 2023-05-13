@@ -62,7 +62,7 @@ const ModalFormCreateUser = ({
         >
             <div className="fixed inset-0 bg-black/30" aria-hidden="true" />
             <div className="fixed inset-0 flex items-center justify-center p-4 ">
-                <Dialog.Panel className="bg-red-500 md:w-2/6 w-full p-6 rounded-lg dark:bg-black dark:border dark:border-gray-600">
+                <Dialog.Panel className="bg-gray-100 md:w-2/6 w-full p-6 rounded-lg dark:bg-black dark:border  dark:border-gray-600">
                     <>
                         {type === "create" ? (
                             <div>
@@ -113,15 +113,15 @@ const ModalFormCreateUser = ({
                                             placeholder="Status *"
                                             containerClassName="text-xs"
                                         />
-                                        <div className="flex justify-between">
+                                        <div className="flex mt-6">
                                             <button
-                                                className="text-xs border border-gray-600 p-2 rounded-lg"
+                                                className="w-full border-y border-l text-xs border-gray-300  dark:border-gray-600 p-2 rounded-l-lg"
                                                 type="submit"
                                             >
                                                 Submit
                                             </button>
                                             <button
-                                                className="text-xs border border-gray-600 p-2 rounded-lg"
+                                                className="w-full text-xs border border-gray-300 dark:border-gray-600 p-2 rounded-r-lg"
                                                 onClick={() => setIsOpen(false)}
                                             >
                                                 Cancel
@@ -179,15 +179,15 @@ const ModalFormCreateUser = ({
                                             placeholder="Status *"
                                             containerClassName="text-xs"
                                         />
-                                        <div className="flex justify-between">
+                                        <div className="flex mt-6">
                                             <button
-                                                className="text-xs border border-gray-600 p-2 rounded-lg"
+                                                className="w-full border-y border-l text-xs border-gray-300  dark:border-gray-600 p-2 rounded-l-lg"
                                                 type="submit"
                                             >
                                                 Submit
                                             </button>
                                             <button
-                                                className="text-xs border border-gray-600 p-2 rounded-lg"
+                                                className="w-full text-xs border border-gray-300 dark:border-gray-600 p-2 rounded-r-lg"
                                                 onClick={() => setIsOpen(false)}
                                             >
                                                 Cancel

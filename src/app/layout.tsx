@@ -3,6 +3,9 @@ import { Inter } from "next/font/google";
 import RQProviders from "@/utils/RQsetup/RQprovider";
 import Navbar from "@/components/organisms/Navbar";
 import { Toaster } from "react-hot-toast";
+import { Theme } from "@/utils/ThemeProvider/ThemeProvider";
+import clsx from "clsx";
+import Footer from "@/components/organisms/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 export const metadata = {
@@ -17,11 +20,14 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en">
-            <body className={inter.className}>
+            <body className={clsx(inter.className, "dark:bg-black bg-white")}>
                 <RQProviders>
-                    <Toaster position="top-right" reverseOrder={false} />
-                    <Navbar />
-                    {children}
+                    <Theme>
+                        <Toaster position="top-right" reverseOrder={false} />
+                        <Navbar />
+                        {children}
+                        <Footer />
+                    </Theme>
                 </RQProviders>
             </body>
         </html>

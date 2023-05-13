@@ -14,7 +14,7 @@ const UserPage = ({ page }: { page: string }) => {
     const [defaultEditValue, setDefaultEditValue] = useState<UserProps>();
     const [modalType, setModalType] = useState<"create" | "edit">("create");
 
-    const { data, isLoading, refetch } = useQuery({
+    const { data, refetch, isFetching } = useQuery({
         queryKey: ["users"],
         queryFn: () => apiServices.getUsers(page),
     });
@@ -40,14 +40,14 @@ const UserPage = ({ page }: { page: string }) => {
 
     return (
         <div className="p-6">
-            <div className="my-6 flex justify-between">
+            <div className="my-6 gap-2 flex justify-between">
                 <input
                     onChange={(e) => setSearch(e.target.value)}
                     placeholder="Filter User . . ."
-                    className="rounded-lg border border-gray-600 bg-transparent p-1 px-4 text-xs text-gray-500 "
+                    className="rounded-lg border border-gray-300 dark:border-gray-600 bg-transparent p-1 px-4 text-xs text-gray-500 "
                 ></input>
                 <button
-                    className="rounded-lg border border-gray-600 p-2 text-xs text-gray-400"
+                    className="rounded-lg border border-gray-300 dark:border-gray-600 p-2 text-xs text-gray-400"
                     onClick={() => {
                         setIsOpen(true);
                         setModalType("create");
@@ -63,10 +63,10 @@ const UserPage = ({ page }: { page: string }) => {
                 type={modalType}
                 defaultEditValues={defaultEditValue}
             />
-            {isLoading ? (
+            {isFetching ? (
                 <Loading />
             ) : (
-                <div className="grid grid-cols-2 gap-2">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                     {handleFilter(data)?.map((item: UserProps) => (
                         <CardUser
                             key={item.id}

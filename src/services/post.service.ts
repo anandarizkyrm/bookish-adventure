@@ -18,8 +18,26 @@ const apiServices = {
         return response.data;
     },
 
+    getComment: async (id: string) => {
+        try {
+            const url = ApiRoutes.get.comment(id);
+            const response = await api.get(url);
+
+            return response.data;
+        } catch (err) {
+            return err;
+        }
+    },
+
     getDetailPost: async (postId: string) => {
         const url = ApiRoutes.get.post(postId);
+        const response = await api.get(url);
+
+        return response.data;
+    },
+
+    getDetailUser: async (id: string) => {
+        const url = ApiRoutes.get.user(id);
         const response = await api.get(url);
 
         return response.data;

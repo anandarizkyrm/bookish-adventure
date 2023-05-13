@@ -9,7 +9,13 @@ const ApiRoutes = {
             return `/public/v2/users?page=${page}&per_page=${per_page}`;
         },
         post(id: string) {
-            return `"/public/v2/posts/${id}"`;
+            return `/public/v2/posts/${id}`;
+        },
+        user(id: string) {
+            return `/public/v2/user/${id}`;
+        },
+        comment(id: string) {
+            return `https://gorest.co.in/public/v2/posts/${id}/comments`;
         },
     },
     create: {

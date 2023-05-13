@@ -13,19 +13,21 @@ const ListPosts = ({ posts, page }: Props) => {
         <div
             className={clsx(
                 "grid gap-6",
-                Number(page) > 1 ? "grid-cols-4" : "grid-cols-6"
+                Number(page) > 1
+                    ? "grid-cols-2 md:grid-cols-4"
+                    : "grid-cols-2 md:grid-cols-6"
             )}
         >
             {posts.map((item: Post, index: number) => (
                 <PostCard
                     className={`${
                         (!page && index <= 1) || (page == "1" && index <= 1)
-                            ? "col-span-3"
+                            ? "col-span-2 md:col-span-3"
                             : "col-span-2"
                     }`}
                     key={item.id}
+                    id={item.id}
                     title={item.title}
-                    body={item.body}
                 />
             ))}
         </div>
